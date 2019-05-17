@@ -1,0 +1,25 @@
+{
+  "name": "Opt-out.eu",
+  "version": "1.0",
+  "description": "Get thousands of organisations to erase your personal data, hassle free.",
+  "background": {
+    "scripts": [
+      "background.js",
+      "psl.min.js",
+      "jquery-3.4.1.min.js"
+    ]
+  },
+  "browser_action": {
+      "default_icon": "icon16.png",
+      "default_title": "No Opt Out Data"
+  },
+  "permissions": [
+      "tabs",
+      "https://opt-out-api.now.sh/companies*" 
+  ],
+  "icons" : {
+    "48" : "icon-48.png",
+    "128" : "icon-128.png"
+  },
+  "manifest_version": 2
+}
