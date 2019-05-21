@@ -23,7 +23,7 @@ xhr.onload = function() {
 function openOptOutURL(url){
   var hostname = new URL(url).hostname;
   var parsed = psl.parse(hostname);
-  var newURL = "https://opt-out.eu/?company=" + parsed.domain;
+  var newURL = "https://opt-out.eu/?company=" + parsed.domain + "&pk_campaign=chrome-extension";
   chrome.tabs.create({ url: newURL });
 };
 
