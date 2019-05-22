@@ -1,5 +1,5 @@
 {
-  "name": "Opt-out.eu",
+  "name": "Opt Out",
   "version": "1.0",
   "description": "Get thousands of organisations to erase your personal data, hassle free.",
   "content_security_policy": "default-src 'none'; script-src 'self'; connect-src https://opt-out-api.now.sh",

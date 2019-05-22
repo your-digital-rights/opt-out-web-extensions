@@ -7,7 +7,7 @@ var selectedId = -1;
 
 function loadDomains(){
   domainList = new Set();
-  $.getJSON('https://opt-out-api.now.sh/companies', function(data) {
+  $.getJSON('https://api.opt-out.eu/companies', function(data) {
     $.each( data, function(key, company) {
       domainList.add(company.url);
     });
