@@ -33,8 +33,10 @@ function updateState(){
     var parsed = psl.parse(hostname);
     if (domainList.has(parsed.domain)) {
       chrome.browserAction.enable(selectedId);
+      chrome.browserAction.setTitle({title: "Click to opt-out of " + parsed.domain, tabId: selectedId});
     } else {
       chrome.browserAction.disable(selectedId);
+      chrome.browserAction.setTitle({title: "This website is not currently supported", tabId: selectedId});
     }
 })};
 

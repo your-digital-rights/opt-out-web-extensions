@@ -1,8 +1,8 @@
 {
-  "name": "Opt Out",
+  "name": "GDPR Opt Out",
   "version": "1.0",
-  "description": "Get thousands of organisations to erase your personal data, hassle free.",
-  "content_security_policy": "default-src 'none'; script-src 'self'; connect-src https://opt-out-api.now.sh",
+  "description": "Easily send GDPR Erasure request (right to be forgoten) with a click of a button.",
+  "content_security_policy": "default-src 'none'; script-src 'self'; connect-src https://api.opt-out.eu/companies",
   "background": {
     "scripts": [
       "background.js",
@@ -12,11 +12,11 @@
   },
   "browser_action": {
       "default_icon": "icon16.png",
-      "default_title": "No Opt Out Data"
+      "default_title": "GDPR Opt Out"
   },
   "permissions": [
       "tabs",
-      "https://opt-out-api.now.sh/companies*" 
+      "https://api.opt-out.eu/companies*" 
   ],
   "icons" : {
     "48" : "icon-48.png",
