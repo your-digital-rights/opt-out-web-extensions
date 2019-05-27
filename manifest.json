@@ -1,7 +1,7 @@
 {
-  "name": "GDPR Opt Out",
-  "version": "1.0",
-  "description": "Easily send GDPR Erasure request (right to be forgoten) with a click of a button.",
+  "name": "Opt Out",
+  "version": "1.01",
+  "description": "Short Description: Get thousands of organisations to erase your personal data. Send GDPR Erasure request (right to be forgotten) with a click of a button.",
   "content_security_policy": "default-src 'none'; script-src 'self'; connect-src https://api.opt-out.eu/companies",
   "background": {
     "scripts": [
