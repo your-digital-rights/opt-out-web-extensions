@@ -1,7 +1,6 @@
 // Copyright (c) 2018 Opt-out.eu. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
-
 var domainList = new Set();
 var selectedId = -1;
 
@@ -14,31 +13,27 @@ function loadDomains(){
   });
 };
 
-var xhr = new XMLHttpRequest();
-xhr.onload = function() {
-    var json = xhr.responseText;
-    json = JSON.parse(json);
-};
-
-function openOptOutURL(url){
-  var hostname = new URL(url).hostname;
-  var parsed = psl.parse(hostname);
-  var newURL = "https://opt-out.eu/?company=" + parsed.domain + "&pk_campaign=chrome-extension";
-  chrome.tabs.create({ url: newURL });
-};
-
 function updateState(){
   var tab = chrome.tabs.get(selectedId, function(tab){
     var hostname = new URL(tab.url).hostname;
     var parsed = psl.parse(hostname);
     if (domainList.has(parsed.domain)) {
+      chrome.browserAction.setIcon({path: "icon-16.png"});
       chrome.browserAction.enable(selectedId);
       chrome.browserAction.setTitle({title: "Click to opt-out of " + parsed.domain, tabId: selectedId});
     } else {
+      chrome.browserAction.setIcon({path: "icon-16.png"});
       chrome.browserAction.disable(selectedId);
       chrome.browserAction.setTitle({title: "This website is not currently supported", tabId: selectedId});
     }
 })};
+
+function openOptOutURL(url){
+  var hostname = new URL(url).hostname;
+  var parsed = psl.parse(hostname);
+  var newURL = "https://opt-out.eu/?company=" + parsed.domain + "&pk_campaign=chrome-extension&pk_source=" + parsed.domain;
+  chrome.tabs.create({ url: newURL });
+};
 
 chrome.runtime.onInstalled.addListener(function() {
   loadDomains();
@@ -49,8 +44,9 @@ chrome.runtime.onStartup.addListener(function(){
 });
 
 chrome.tabs.onUpdated.addListener(function(tabId, props) {
-  if (props.status == "complete" && tabId == selectedId)
+  if (props.status == "complete" && tabId == selectedId){
     updateState();
+  }
 });
 
 chrome.tabs.onSelectionChanged.addListener(function(tabId, props) {

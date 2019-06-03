@@ -1,17 +1,17 @@
 {
   "name": "Opt Out",
   "version": "1.01",
-  "description": "Short Description: Get thousands of organisations to erase your personal data. Send GDPR Erasure request (right to be forgotten) with a click of a button.",
+  "description": "Get thousands of organisations to erase your personal data. Easily send GDPR Erasure request (right to be forgotten).",
   "content_security_policy": "default-src 'none'; script-src 'self'; connect-src https://api.opt-out.eu/companies",
   "background": {
-    "scripts": [
-      "background.js",
+    "scripts": [      
       "psl.min.js",
-      "jquery-3.4.1.min.js"
+      "jquery-3.4.1.min.js",
+      "background.js"
     ]
   },
   "browser_action": {
-      "default_icon": "icon16.png",
+      "default_icon": "icon-16.png",
       "default_title": "Opt Out"
   },
   "permissions": [
