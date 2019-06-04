@@ -5,7 +5,7 @@
 let domainList = [];
 
 const whatBrowser = typeof browser !== "undefined" ? 'firefox' : 'chrome';
-const ext = (action) => {
+const ext = () => {
   if (typeof browser !== "undefined") {
     return browser;
   }
