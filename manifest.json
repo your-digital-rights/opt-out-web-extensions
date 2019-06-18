@@ -1,21 +1,11 @@
 {
   "name": "Opt Out",
-<<<<<<< HEAD
-  "version": "1.01",
+  "version": "1.02",
   "description": "Get thousands of organisations to erase your personal data. Easily send GDPR Erasure request (right to be forgotten).",
   "content_security_policy": "default-src 'none'; script-src 'self'; connect-src https://api.opt-out.eu/companies",
   "background": {
     "scripts": [      
       "psl.min.js",
-      "jquery-3.4.1.min.js",
-=======
-  "version": "1.02",
-  "description": "Short Description: Get thousands of organisations to erase your personal data. Send GDPR Erasure request (right to be forgotten) with a click of a button.",
-  "content_security_policy": "default-src 'none'; script-src 'self'; connect-src https://api.opt-out.eu/companies",
-  "background": {
-    "scripts": [
-      "psl.min.js",
->>>>>>> 84a6c57fab9e75a6f0df551a9fd20005bb50b1ab
       "background.js"
     ]
   },
