@@ -1,8 +1,8 @@
 {
-  "name": "Opt Out (one click GDPR erasure requests)",
-  "version": "1.0.2",
-  "description": "Get thousands of organisations to erase your personal data. Easily send GDPR Erasure request (right to be forgotten).",
-  "content_security_policy": "default-src 'none'; script-src 'self'; connect-src https://api.opt-out.eu/companies",
+  "name": "Opt Out - automated GDPR and CCPA requests",
+  "version": "1.5",
+  "description": "Get thousands of organisations to erase your personal data. Easily send GDPR and CCPA erasure (right to be forgotten) requests.",
+  "content_security_policy": "default-src 'none'; script-src 'self'; connect-src https://api.yourdigitalrights.org/companies",
   "background": {
     "scripts": [      
       "psl.min.js",
@@ -15,7 +15,7 @@
   },
   "permissions": [
       "tabs",
-      "https://api.opt-out.eu/companies*"
+      "https://api.yourdigitalrights.org/companies*"
   ],
   "icons" : {
     "48" : "icon-48.png",

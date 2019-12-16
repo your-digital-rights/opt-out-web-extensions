@@ -13,7 +13,7 @@ const ext = () => {
 }
 
 const loadDomains = () => {
-  fetch('https://api.opt-out.eu/companies')
+  fetch('https://api.yourdigitalrights.org/companies')
   .then((response) => {
     return response.json();
   })
@@ -25,7 +25,7 @@ const loadDomains = () => {
 const openOptOutURL = (url) => {
   const hostname = new URL(url).hostname;
   const parsed = psl.parse(hostname);
-  const newURL = `https://opt-out.eu/?company=${parsed.domain}&pk_campaign=browser-extension&pk_kwd=${whatBrowser}&pk_source=${parsed.domain}`;
+  const newURL = `https://yourdigitalrights.org/?company=${parsed.domain}&pk_campaign=browser-extension&pk_kwd=${whatBrowser}&pk_source=${parsed.domain}`;
 
   chrome.tabs.create({url: newURL});
 };
