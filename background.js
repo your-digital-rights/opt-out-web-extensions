@@ -23,24 +23,27 @@ const loadDomains = () => {
 };
 
 const openOptOutURL = (url) => {
+  const hostname = new URL(url).hostname;
+  const parsed = psl.parse(hostname);
   if (domainList.includes(parsed.domain)) {
-    const hostname = new URL(url).hostname;
-    const parsed = psl.parse(hostname);
     const newURL = `https://yourdigitalrights.org/d/${parsed.domain}/?pk_campaign=browser-extension&pk_kwd=${whatBrowser}&pk_source=${parsed.domain}`;
-  } else {
-    const newURL = `https://yourdigitalrights.org/d/add/`
+    chrome.tabs.create({url: newURL});
   }
-  chrome.tabs.create({url: newURL});
 };
 
 const setTab = (tab, tabId) => {
-  const hostname = new URL(tab.url).hostname;
-  const parsed = psl.parse(hostname);
+  try {
+    const hostname = new URL(tab.url).hostname;
+    const parsed = psl.parse(hostname);
 
-  if (domainList.includes(parsed.domain)) {
-    ext().browserAction.setTitle({title: `Click to send ${parsed.domain} a data Access or Deletion request`, tabId});
-  } else {
-    ext().browserAction.setTitle({title: "This website is not on our list, click to send a custom request", tabId});
+    if (domainList.includes(parsed.domain)) {
+      ext().browserAction.setTitle({title: `Click to send ${parsed.domain} a data Access or Deletion request`, tabId});
+    } else {
+      ext().browserAction.setTitle({title: "This website is not on our list, click to send a custom request", tabId});
+      chrome.browserAction.setPopup({tabId, popup: 'popup.html'})
+    }
+  } catch (e) {
+    console.log(e)
   }
 };
 
