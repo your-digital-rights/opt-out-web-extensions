@@ -1,0 +1,32 @@
+body {    
+  width: 280px;
+  margin: 20px;
+}
+h1 {
+  font-size: 18px;
+  text-align: center;
+}
+h2 {
+  font-size: 15px;
+  text-align: center;	
+}
+div {
+	align-content: center;
+}
+p {
+	text-align: justify;
+}
+button {
+  position: relative;
+  display: block;
+  margin: 30px auto;
+  padding: 10px;
+  overflow: hidden;
+  border-width: 0;
+  outline: none;
+  border-radius: 3px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+  background-color: #2ecc71;
+  color: #ecf0f1;
+  transition: background-color .3s;
+}

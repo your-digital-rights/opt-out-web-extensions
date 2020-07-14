@@ -1,5 +1,5 @@
-// Copyright (c) 2019 Opt-out.eu. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
+// Copyright (c) 2019 YourDigitalRights.org. All rights reserved.
+// Use of this source code is governed by a GPLv3-style license that can be
 // found in the LICENSE file.
 let domainList = [];
 
@@ -25,21 +25,25 @@ const loadDomains = () => {
 const openOptOutURL = (url) => {
   const hostname = new URL(url).hostname;
   const parsed = psl.parse(hostname);
-  const newURL = `https://yourdigitalrights.org/?company=${parsed.domain}&pk_campaign=browser-extension&pk_kwd=${whatBrowser}&pk_source=${parsed.domain}`;
-
-  chrome.tabs.create({url: newURL});
+  if (domainList.includes(parsed.domain)) {
+    const newURL = `https://yourdigitalrights.org/d/${parsed.domain}/?pk_campaign=browser-extension&pk_kwd=${whatBrowser}&pk_source=${parsed.domain}`;
+    chrome.tabs.create({url: newURL});
+  }
 };
 
 const setTab = (tab, tabId) => {
-  const hostname = new URL(tab.url).hostname;
-  const parsed = psl.parse(hostname);
+  try {
+    const hostname = new URL(tab.url).hostname;
+    const parsed = psl.parse(hostname);
 
-  if (domainList.includes(parsed.domain)) {
-    ext().browserAction.enable(tabId);
-    ext().browserAction.setTitle({title: `Click to opt-out of ${parsed.domain}`, tabId});
-  } else {
-    ext().browserAction.disable(tabId);
-    ext().browserAction.setTitle({title: "This website is not currently supported", tabId});
+    if (domainList.includes(parsed.domain)) {
+      ext().browserAction.setTitle({title: `Click to send ${parsed.domain} a data Access or Deletion request`, tabId});
+    } else {
+      ext().browserAction.setTitle({title: "This website is not on our list, click to send a custom request", tabId});
+      chrome.browserAction.setPopup({tabId, popup: 'popup.html'})
+    }
+  } catch (e) {
+    console.log(e)
   }
 };
 

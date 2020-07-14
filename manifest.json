@@ -1,8 +1,8 @@
 {
-  "name": "Opt Out - automated GDPR and CCPA requests",
-  "version": "1.6",
-  "description": "Get thousands of organisations to erase your personal data. Easily send GDPR and CCPA erasure (right to be forgotten) requests.",
-  "content_security_policy": "default-src 'none'; script-src 'self'; connect-src https://api.yourdigitalrights.org/companies",
+  "name": "Opt Out - send GDPR and CCPA data requests",
+  "version": "2.0",
+  "description": "Get the websites you visit to send you a copy of, or delete the personal information that they have collected on you.",
+  "content_security_policy": "default-src 'none'; script-src 'self'; frame-src https://yourdigitalrights.org/ ;connect-src https://api.yourdigitalrights.org/companies",
   "background": {
     "scripts": [      
       "psl.min.js",
