@@ -18,7 +18,7 @@ const loadDomains = () => {
     return response.json();
   })
   .then((companies) => {
-    domainList = companies.map((company) => company.url);
+    domainList = companies['Organizations'].map((company) => company.url);
   });
 };
 
