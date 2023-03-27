@@ -1,25 +1,27 @@
 {
-  "name": "Opt Out - send GDPR and CCPA data requests",
-  "version": "2.1",
+  "name": "Opt Out - send data deletion and access requests to the websites you visit",
+  "version": "2.2",
   "description": "Get the websites you visit to send you a copy of, or delete the personal information that they have collected on you.",
-  "content_security_policy": "default-src 'none'; script-src 'self'; frame-src https://yourdigitalrights.org/ ;connect-src https://api.yourdigitalrights.org/companies",
-  "background": {
-    "scripts": [      
-      "psl.min.js",
-      "background.js"
-    ]
+  "content_security_policy": {
+    "extension_pages": "default-src 'none'; script-src 'self'; frame-src https://yourdigitalrights.org/ ;connect-src https://api.yourdigitalrights.org/domains"
   },
-  "browser_action": {
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
       "default_icon": "icon-16.png",
       "default_title": "Opt Out"
   },
   "permissions": [
       "tabs",
-      "https://api.yourdigitalrights.org/companies*"
+      "storage"
+  ],
+  "host_permissions": [
+      "https://api.yourdigitalrights.org/domains*"
   ],
   "icons" : {
     "48" : "icon-48.png",
     "128" : "icon-128.png"
   },
-  "manifest_version": 2
+  "manifest_version": 3
 }
